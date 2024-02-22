@@ -1,28 +1,20 @@
-// express index.js
-const express = require('express');
-const cors = require('cors');
-const app = new express();
-app.use(cors());
-app.get("/",(req,res)=>{
-    console.log("request received");
-    res.json("hello world");
-})
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
-app.get("/hi",(req,res)=>{
-    console.log("hi request received");
-    res.json("welcome to nodemon");
-})
-app.get("/people",(req,res)=>{
-    console.log("people request received");
-    res.json([{name:"krishna",role:"student"},
-{name:"dilna",role:"teacher"}]);
-})
-app.get("/student",(req,res)=>{
-    console.log("student request received");
-    res.json([{name:"tiya",age:20,dept:"it"},
-{name:"manasa",age:19,dept:"CS"}]);
-})
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+    <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
 
-app.listen("4000",()=>{
-    console.log("started server on 4000");
-});
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
